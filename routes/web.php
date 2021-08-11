@@ -15,10 +15,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', HomeController::class);
+Route::get('/', HomeController::class)->name('login');
 
-Route::get('dashboard', [PanelController::class, 'dashboard']);
-
-Route::get('management', [PanelController::class, 'management']);
-
-Route::get('register', [PanelController::class, 'register']);
+Route::get('panel', [PanelController::class, 'panel'])->name('panel');
