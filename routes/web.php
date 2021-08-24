@@ -1,9 +1,10 @@
 <?php
 
+use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\ReportController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\PanelController;
+use App\Http\Controllers\SessionController;
 use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,6 +16,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', HomeController::class)->name('login');
+Route::get('/', [HomeController::class, 'home'])->name('login');
+Route::post('dashboard', [SessionController::class, 'login'])->name('login');
+Route::post('logout', [SessionController::class, 'logout'])->name('logout');
 
-Route::get('panel', [PanelController::class, 'panel'])->name('panel');
+
+Route::resource('/users', UserController::class)->names('users');
+Route::resource('/reports', ReportController::class)->names('reports');

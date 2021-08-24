@@ -23,8 +23,17 @@ class UserFactory extends Factory
     {
       return [
           'name' => $this->faker->name(),
-          'email' => $this->faker->unique()->safeEmail(),
           'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+          'email' => $this->faker->unique()->safeEmail(),
+          'position' => $this->faker->randomElement(['admin','user']),
+          'area_code' => '1',
+          'country' => $this->faker->randomElement(['mexico','chile','peru']),
+          'country_origin' => $this->faker->randomElement(['mexico','chile','peru']),
+          'currency' => $this->faker->randomElement(['usd','mxn','eur']),
+          'status' => $this->faker->randomElement(['activo','inactivo']),
+          'start_date' => '26/08/1999',
+          'cod_manager' => $this->faker->randomElement(['222','333','444']),
+          'email_manager' => $this->faker->randomElement(['admin1@gmail.com','admin2@gmail.com']),
       ];
     }
 }
