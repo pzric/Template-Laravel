@@ -2,7 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Report;
+use App\Models\Country;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Redirect;
+use phpDocumentor\Reflection\DocBlock\Tag;
 
 class ReportController extends Controller
 {
@@ -13,7 +19,8 @@ class ReportController extends Controller
      */
     public function index()
     {
-        return view('panel.reports.show');
+        $reports = Report::all();
+        return view('panel.reports.show', compact('reports'));
     }
 
     /**
@@ -21,9 +28,25 @@ class ReportController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+     public function upload()
+     {
+         return view('panel.reports.upload');
+     }
+
     public function create()
     {
-        //
+        $project = [
+          '1' => 'Proyecto1',
+          '2' => 'Proyecto2',
+        ];
+        $cost = [
+          '1' => 'Costo1',
+          '2' => 'Costo2',
+        ];
+        $countries = Country::all();
+        $allcountries = Country::pluck('pais');
+        $coin_type = Country::pluck('coin_type');
+        return view('panel.reports.create', compact('countries', 'allcountries', 'coin_type', 'project', 'cost'));
     }
 
     /**
@@ -32,9 +55,23 @@ class ReportController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
     public function store(Request $request)
     {
-        //
+        $request->validate([
+          'date'=> 'required',
+          'payment_country'=> 'required',
+          'currency'=> 'required',
+          'amount'=> 'required',
+          'accrual'=> 'required',
+          'project'=> 'required',
+          'cost'=> 'required',
+          'description'=> 'required',
+          'username'=> 'required',
+          'user_area'=> 'required',
+        ]);
+        Report::create($request->all());
+        return redirect()->route('reports.index');
     }
 
     /**
@@ -43,9 +80,9 @@ class ReportController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Report $report)
     {
-        //
+
     }
 
     /**
@@ -54,9 +91,20 @@ class ReportController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Report $report)
     {
-        //
+      $project = [
+        '1' => 'Proyecto1',
+        '2' => 'Proyecto2',
+      ];
+      $cost = [
+        '1' => 'Costo1',
+        '2' => 'Costo2',
+      ];
+      $countries = Country::all();
+      $allcountries = Country::pluck('pais');
+      $coin_type = Country::pluck('coin_type');
+      return view('panel.reports.edit',compact('countries', 'allcountries', 'coin_type', 'project', 'cost','report'));
     }
 
     /**
@@ -66,9 +114,10 @@ class ReportController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Report $report)
     {
-        //
+        $report->update($request->all());
+        return redirect()->route('reports.index', compact('report'));
     }
 
     /**
@@ -77,8 +126,9 @@ class ReportController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Report $report)
     {
-        //
+        $report->delete();
+        return redirect()->route('reports.index');
     }
 }

@@ -9,6 +9,12 @@
     <!-- component -->
     <div class="w-full overflow-x-hidden border-t flex flex-col">
         <div class="container mx-auto px-4 sm:px-8">
+            <div class="text-right my-8">
+                <a href="{{route('reports.create')}}" class="m-2 text-sm bg-green-500 hover:bg-green-700 text-white py-3 px-8 rounded focus:outline-none focus:shadow-outline">
+                    <i class="fas fa-plus mr-3"></i>
+                    Nuevo reporte
+                </a>
+            </div>
             <div class="my-2 flex sm:flex-row flex-col">
                 <div class="flex flex-row mb-1 sm:mb-0">
                     <div class="relative">
@@ -41,95 +47,71 @@
                     <table class="min-w-full leading-normal">
                         <thead>
                             <tr>
-                                <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-600 uppercase tracking-wider">
                                     Usuario
                                 </th>
-                                <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                                    Status
-                                </th>
-                                <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-600 uppercase tracking-wider">
                                     Creado en
                                 </th>
                                 <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                    Status
+                                </th>
+                                <th colspan="2" class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-600 uppercase tracking-wider">
                                     Acciones
                                 </th>
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach ($reports as $report)
                             <tr>
                                 <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                     <div class="flex items-center">
                                         <div class="flex-shrink-0 w-10 h-10">
-                                            <img class="w-full h-full rounded-full" src="https://source.unsplash.com/uJ8LNVCBjFQ/400x400"/>
+                                            <img class="w-full h-full rounded-full" src="https://source.unsplash.com/uJ8LNVCBjFQ/400x400" />
                                         </div>
                                         <div class="ml-3">
                                             <p class="text-gray-900 whitespace-no-wrap">
-                                                Paco
+                                                {{$report->username}}
                                             </p>
                                         </div>
                                     </div>
                                 </td>
-                                <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm text-center">
+                                    <p class="text-gray-900 whitespace-no-wrap">
+                                        {{$report->date}}
+                                    </p>
+                                </td>
+                                <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm text-center">
+                                    @if ($report->state === 'Autorizado')
                                     <span class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
                                         <span aria-hidden class="absolute inset-0 bg-green-200 opacity-50 rounded-full"></span>
-                                        <span class="relative">
-                                          Autorizado
-                                        </span>
+                                        <span class="relative">Autorizado</span>
                                     </span>
-                                </td>
-                                <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                    <p class="text-gray-900 whitespace-no-wrap">
-                                        26/08/2021
-                                    </p>
-                                </td>
-                                <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm text-center">
-                                  <div class="ml-2">
-                                    <button type="button" class="text-sm bg-green-500 hover:bg-green-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">
-                                        Visualizar
-                                    </button>
-                                  </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                    <div class="flex items-center">
-                                        <div class="flex-shrink-0 w-10 h-10">
-                                            <img class="w-full h-full rounded-full" src="https://source.unsplash.com/uJ8LNVCBjFQ/400x400"/>
-                                        </div>
-                                        <div class="ml-3">
-                                            <p class="text-gray-900 whitespace-no-wrap">
-                                                Pedro
-                                            </p>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                    @else
                                     <span class="relative inline-block px-3 py-1 font-semibold text-red-900 leading-tight">
                                         <span aria-hidden class="absolute inset-0 bg-red-200 opacity-50 rounded-full"></span>
-                                        <span class="relative">
-                                          No autorizado
-                                        </span>
+                                        <span class="relative">No autorizado</span>
                                     </span>
+                                    @endif
                                 </td>
-                                <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                    <p class="text-gray-900 whitespace-no-wrap">
-                                        26/08/2021
-                                    </p>
+                                <td class="border-b border-gray-200 bg-white text-sm text-center">
+                                    <div class="ml-2">
+                                        <a class="text-sm bg-yellow-500 hover:bg-yellow-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline" href="{{route('reports.edit', $report)}}">
+                                            Modificar
+                                        </a>
+                                    </div>
                                 </td>
-                                <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm text-center">
-                                  <div class="ml-2">
-                                    <button type="button" class="text-sm bg-green-500 hover:bg-green-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">
-                                        Visualizar
-                                    </button>
-                                    <button type="button" class="text-sm bg-yellow-500 hover:bg-yellow-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">
-                                        Modificar
-                                    </button>
-                                    <button type="button" class="text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">
-                                        Borrar
-                                    </button>
-                                  </div>
+                                <td class="border-b border-gray-200 bg-white text-sm">
+                                    <form action="{{route('reports.destroy', $report)}}" method="POST">
+                                        @csrf
+                                        @method('delete')
+                                        <button type="submit" class="m-2 text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">
+                                            Eliminar
+                                        </button>
+                                    </form>
                                 </td>
                             </tr>
+                            @endforeach
                         </tbody>
                     </table>
                     <div class="px-5 py-5 bg-white border-t flex flex-col xs:flex-row items-center xs:justify-between">
@@ -150,8 +132,4 @@
         </div>
     </div>
 </div>
-
-</div>
-</div>
-
 @endsection

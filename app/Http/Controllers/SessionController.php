@@ -15,7 +15,7 @@ class SessionController extends Controller
     /** login */
     if (Auth::attempt($request->only('email', 'password'), $remember)){
       $request->session();
-      return view('panel.dashboard');
+      return redirect()->route('panel');
     }
     return view('login');
   }

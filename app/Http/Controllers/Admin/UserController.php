@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Illuminate\Support\Facades\Redirect;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Country;
 use App\Models\User;
+
 
 class UserController extends Controller
 {
@@ -15,8 +18,7 @@ class UserController extends Controller
      */
     public function index()
     {
-      $users = User::all();
-      return view('panel.users.show',compact('users'));
+      return view('panel.users.show');
     }
 
     /**
@@ -26,7 +28,24 @@ class UserController extends Controller
      */
     public function create()
     {
-
+      $rol = [
+        'Super usuario' => 'Super usuario',
+        'Administrador' => 'Administrador',
+        'Usuario operativo' => 'Usuario operativo',
+        'Usuario aprovador' => 'Usuario aprovador',
+      ];
+      $area = [
+        'Comercial' => 'Comercial',
+        'Finanzas' => 'Finanzas',
+        'Logistica' => 'Logistica',
+        'Capital humano' => 'Capital humano',
+        'Marketing' => 'Marketing',
+        'TI' => 'TI',
+      ];
+      $countries = Country::all();
+      $allcountries = Country::pluck('pais');
+      $coin_type = Country::pluck('coin_type');
+      return view('panel.users.create',compact('rol', 'area', 'countries', 'allcountries', 'coin_type'));
     }
 
     /**
@@ -35,9 +54,39 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, User $user)
     {
-
+      /*$request->validate([
+        'name' => 'required',
+        'password' => 'required',
+        'password_confirm' => 'required|same:password',
+        'email' => 'required',
+        'rol' => 'required',
+        'country_origin' =>'required',
+        'area' =>'required',
+        'money' =>'required',
+        'start_date' =>'required',
+        'end_date' =>'required',
+        'toggle' =>'required',
+        'cod_manager' =>'required',
+        'email_manager' =>'required',
+      ]);
+      $user->update([
+        'name' => $request['name'],
+        'password' => bcrypt($request['password_confirm']),
+        'email' => $request['email'],
+        'rol' => $request['rol'],
+        'country_origin' => $request['country_origin'],
+        'area' => $request['area'],
+        'money' => $request['money'],
+        'start_date' => $request['start_date'],
+        'end_date' => $request['end_date'],
+        'toggle' => $request['toggle'],
+        'cod_manager' => $request['cod_manager'],
+        'email_manager' => $request['email_manager'],
+      ]);
+      return redirect()->route('users.index');*/
+      return $request;
     }
 
     /**
@@ -59,7 +108,24 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-
+      $rol = [
+        'Super usuario' => 'Super usuario',
+        'Administrador' => 'Administrador',
+        'Usuario operativo' => 'Usuario operativo',
+        'Usuario aprovador' => 'Usuario aprovador',
+      ];
+      $area = [
+        'Comercial' => 'Comercial',
+        'Finanzas' => 'Finanzas',
+        'Logistica' => 'Logistica',
+        'Capital humano' => 'Capital humano',
+        'Marketing' => 'Marketing',
+        'TI' => 'TI',
+      ];
+      $countries = Country::all();
+      $allcountries = Country::pluck('pais');
+      $coin_type = Country::pluck('coin_type');
+      return view('panel.users.edit',compact('rol', 'area', 'user','countries', 'allcountries', 'coin_type'));
     }
 
     /**
@@ -69,9 +135,38 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Users $user)
+    public function update(Request $request, User $user)
     {
-        //
+      $request->validate([
+        'name' => 'required',
+        'password' => 'required',
+        'password_confirm' => 'required|same:password',
+        'email' => 'required',
+        'rol' => 'required',
+        'country_origin' =>'required',
+        'area' =>'required',
+        'money' =>'required',
+        'start_date' =>'required',
+        'end_date' =>'required',
+        'toggle' =>'required',
+        'cod_manager' =>'required',
+        'email_manager' =>'required',
+      ]);
+      $user->update([
+        'name' => $request['name'],
+        'password' => bcrypt($request['password_confirm']),
+        'email' => $request['email'],
+        'rol' => $request['rol'],
+        'country_origin' => $request['country_origin'],
+        'area' => $request['area'],
+        'money' => $request['money'],
+        'start_date' => $request['start_date'],
+        'end_date' => $request['end_date'],
+        'toggle' => $request['toggle'],
+        'cod_manager' => $request['cod_manager'],
+        'email_manager' => $request['email_manager'],
+      ]);
+      return redirect()->route('users.index');
     }
 
     /**
@@ -80,8 +175,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Users $user)
+    public function destroy(User $user)
     {
-        //
+      $user->delete();
+      return redirect()->route('users.index');
     }
 }

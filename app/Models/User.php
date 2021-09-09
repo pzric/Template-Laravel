@@ -11,5 +11,19 @@ class User extends Model implements AuthenticatableContract {
 
     use Authenticatable;
     use HasFactory;
+    protected $fillable = [
+      'name',
+      'password',
+      'email',
+      'rol',
+      'country_origin',
+      'area',
+      'money',
+      'start_date',
+      'end_date',
+      'toggle',
+      'cod_manager',
+      'email_manager',
+    ];
 
 }
