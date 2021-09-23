@@ -13,7 +13,7 @@ class ShowUsers extends Component
 
     public function render()
     {
-        $users = User::where('name', 'like', '%' . $this->search . '%')
+        $users = User::where([['name', 'like', '%' . $this->search . '%'],['id', '<>', '1']])
         ->orderby($this->sort, $this->direction)
         ->get();
         return view('livewire.show-users',compact('users'));

@@ -10,17 +10,20 @@ class Report extends Model
     use HasFactory;
 
     protected $fillable = [
-      'date',
-      'payment_country',
-      'currency',
-      'amount',
-      'dollar_amount',
-      'accrual',
-      'project',
-      'cost',
-      'description',
-      'state',
-      'username',
-      'user_area',
+        'date',
+        'coin',
+        'id_country',
+        'currency',
+        'number1',
+        'number2',
+        'id_countryb',
+        'id_concept',
+        'concep',
+        'description',
+        'calendar',
+        'cost',
+        'project',
+        'name_beneficted',
+        'user_area',
     ];
 }

@@ -18,10 +18,4 @@
         </div>
     </div>
 </div>
-<!--<script type="text/javascript">
-var text = document.getElementById('country_origin');
-document.getElementById('country_origin').onchange = function() {
-  window.alert(text);
-};
-</script>-->
 @endsection

@@ -2,12 +2,10 @@
 @section('title', 'Panel')
 @section('content')
 <div>
-  <x-siderbar attribute="value" />
+    <x-siderbar attribute="value" />
 </div>
 <div class="w-full flex flex-col h-screen overflow-y-hidden">
-  <x-nav attribute="value" />
-  <div class="w-full overflow-x-hidden border-t flex flex-col">
-    <p>Hello word</p>
-  </div>
+    <x-nav attribute="value" />
+    @livewire('show-concepts')
 </div>
 @endsection

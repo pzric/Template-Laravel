@@ -16,19 +16,20 @@ class Reports extends Migration
       Schema::create('reports', function(Blueprint $table){
         $table->id();
         $table->string('date');
-        $table->string('payment_country');
+        $table->string('coin');
+        $table->string('id_country');
         $table->string('currency');
-        $table->string('amount');
-        $table->string('dollar_amount')->nullable();
-        $table->string('accrual');
-        $table->string('project');
-        $table->string('cost');
+        $table->string('number1');
+        $table->string('number2');
+        $table->string('id_countryb');
+        $table->string('id_concept');
         $table->string('description');
-        $table->string('state')->nullable();
-        $table->string('username');
+        $table->string('cost');
+        $table->string('calendar');
+        $table->string('cos');
+        $table->string('project');
+        $table->string('name_beneficted');
         $table->string('user_area');
-        $table->string('countries[]');
-        $table->rememberToken()->nullable();
         $table->timestamps();
       });
     }

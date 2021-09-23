@@ -12,15 +12,14 @@
             <form class="flex flex-col pt-3 md:pt-8" method="post" action="{{route('home')}}">
                 @csrf
                 <div class="flex flex-col pt-4">
-                    <label for="email" class="text-lg">Correo</label>
-                    <input type="email" required autofocus name="email" value="{{ old('email') }}" placeholder="your@email.com" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none
-                    focus:shadow-outline">
-                    @error ('email') {{$message}}
+                    <label for="code" class="text-lg">Codigo de usuario</label>
+                    <input type="number" required autofocus name="code" value="{{ old('code') }}" placeholder="Codigo usuario " class="appearance-none shadow border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline">
+                    @error ('code') {{$message}}
                     @enderror
                 </div>
                 <div class="flex flex-col pt-4">
                     <label for="password" class="text-lg">Contraseña</label>
-                    <input type="password" required name="password" placeholder="Password" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline">
+                    <input type="password" required name="password" placeholder="Contraseña" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline">
                     @error ('password') {{$message}}
                     @enderror
                 </div>

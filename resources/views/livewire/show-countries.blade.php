@@ -2,7 +2,7 @@
       <div class="container mx-auto px-4 sm:px-8">
           <div class="text-right my-8">
               <a href="{{route('countries.create')}}" class="text-sm bg-green-500 hover:bg-green-700 text-white py-3 px-8 rounded focus:outline-none focus:shadow-outline">
-                  <i class="fas fa-user-plus mr-3"></i>
+                  <i class="fas fa-plus mr-3"></i>
                   Agregar pais
               </a>
           </div>

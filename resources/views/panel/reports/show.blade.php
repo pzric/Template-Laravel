@@ -12,7 +12,7 @@
             <div class="text-right my-8">
                 <a href="{{route('reports.create')}}" class="m-2 text-sm bg-green-500 hover:bg-green-700 text-white py-3 px-8 rounded focus:outline-none focus:shadow-outline">
                     <i class="fas fa-plus mr-3"></i>
-                    Nuevo reporte
+                    Alta Presupuesto
                 </a>
             </div>
             <div class="my-2 flex sm:flex-row flex-col">

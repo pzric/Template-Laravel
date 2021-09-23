@@ -8,6 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- AlpineJS -->
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <!-- Font Awesome -->
@@ -34,19 +36,23 @@
             background: #4B7447;
         }
         .toggle-checkbox:checked {
-          @apply: right-0 border-green-400;
+          apply: right-0 border-green-400;
           right: 0;
           border-color: #68D391;
         }
         .toggle-checkbox:checked + .toggle-label {
-          @apply: bg-green-400;
+          apply: bg-green-400;
           background-color: #68D391;
         }
     </style>
+
+    <livewire:styles />
+
 </head>
 
 <body class="bg-gray-300 font-family-karla flex">
     @yield('content')
+
     <livewire:scripts />
 </body>
 </html>

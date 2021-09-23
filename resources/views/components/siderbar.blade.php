@@ -1,7 +1,7 @@
 <aside class="relative bg-sidebar h-screen w-64 hidden sm:block shadow-xl">
     <div class="container mx-auto">
-    <!--<a href="logotipo nikken.png" class="bg-white text-black font-bold text-xl p-4">Logo</a>-->
-    <img src="{{ asset('logotipo nikken-02.png') }}" class="object-fill h-35 w-full">
+        <!--<a href="logotipo nikken.png" class="bg-white text-black font-bold text-xl p-4">Logo</a>-->
+        <img src="{{ asset('logotipo nikken-02.png') }}" class="object-fill h-35 w-full">
     </div>
     <nav class="text-white text-base font-semibold pt-3">
         <a href="{{route('panel')}}" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item {{ request()->is('dashboard') ? 'active-nav-link' : '' }}">
@@ -18,9 +18,17 @@
                     <i class="fas fa-users mr-3"></i>
                     Usuarios
                 </a>
+                <a href="{{route('benefited.index')}}" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item ">
+                    <i class="fas fa-user-tag mr-3"></i>
+                    Beneficiados
+                </a>
                 <a href="{{route('countries.index')}}" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item {{ request()->is('countries*') ? 'active-nav-link' : '' }}">
                     <i class="fas fa-globe-americas mr-3"></i>
                     Paises
+                </a>
+                <a href="{{route('concept.index')}}" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+                    <i class="fas fa-file-invoice mr-3"></i>
+                    Concepto especifico
                 </a>
             </div>
         </div>
@@ -31,8 +39,8 @@
             </a>
             <div x-show="Open" class="p-2 relative w-full rounded-lg shadow-lg">
                 <a href="{{route('reports.index')}}" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item {{ request()->is('reports/show*') ? 'active-nav-link' : '' }}">
-                  <i class="fas fa-file-contract mr-3"></i>
-                  Registro
+                    <i class="fas fa-file-contract mr-3"></i>
+                    Registro
                 </a>
                 <a href="#" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
                     <i class="fas fa-clipboard-check mr-3"></i>

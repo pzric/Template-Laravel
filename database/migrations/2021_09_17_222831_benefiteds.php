@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class DataTable extends Migration
+class Benefiteds extends Migration
 {
     /**
      * Run the migrations.
@@ -13,21 +13,12 @@ class DataTable extends Migration
      */
     public function up()
     {
-        Schema::create('users', function(Blueprint $table){
+        Schema::create('benefiteds', function(Blueprint $table){
           $table->id();
           $table->string('name');
-          $table->string('email');
-          $table->string('rol');
           $table->string('area');
-          $table->string('start_date');
-          $table->string('end_date');
-          $table->string('toggle')->nullable();
           $table->string('country_origin');
-          $table->string('code');
-          $table->string('password');
-          $table->string('cod_manager');
-          $table->string('email_manager');
-          $table->rememberToken()->nullable();
+          $table->string('toggle')->nullable();
           $table->timestamps();
         });
     }
@@ -39,6 +30,6 @@ class DataTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('benefiteds');
     }
 }

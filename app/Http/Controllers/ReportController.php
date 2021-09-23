@@ -35,18 +35,7 @@ class ReportController extends Controller
 
     public function create()
     {
-        $project = [
-          '1' => 'Proyecto1',
-          '2' => 'Proyecto2',
-        ];
-        $cost = [
-          '1' => 'Costo1',
-          '2' => 'Costo2',
-        ];
-        $countries = Country::all();
-        $allcountries = Country::pluck('pais');
-        $coin_type = Country::pluck('coin_type');
-        return view('panel.reports.create', compact('countries', 'allcountries', 'coin_type', 'project', 'cost'));
+        return view('panel.reports.create');
     }
 
     /**
@@ -59,16 +48,21 @@ class ReportController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-          'date'=> 'required',
-          'payment_country'=> 'required',
-          'currency'=> 'required',
-          'amount'=> 'required',
-          'accrual'=> 'required',
-          'project'=> 'required',
-          'cost'=> 'required',
-          'description'=> 'required',
-          'username'=> 'required',
-          'user_area'=> 'required',
+          'date' => 'required',
+          'coin' => 'required',
+          'id_country' => 'required',
+          'currency' => 'required',
+          'number1' => 'required',
+          'number2' => 'required',
+          'id_countryb' => 'required',
+          'id_concept' => 'required',
+          'concep' => 'required',
+          'description' => 'required',
+          'calendar' => 'required',
+          'cost' => 'required',
+          'project' => 'required',
+          'name_beneficted' => 'required',
+          'user_area' => 'required',
         ]);
         Report::create($request->all());
         return redirect()->route('reports.index');

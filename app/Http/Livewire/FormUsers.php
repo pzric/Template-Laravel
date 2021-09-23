@@ -5,6 +5,8 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use App\Models\Country;
 use App\Models\User;
+use Countries;
+
 
 class FormUsers extends Component
 {
@@ -25,12 +27,13 @@ class FormUsers extends Component
   public $count;
   public $coin;
     public function render(){
+        $namecountries = Country::pluck('pais', 'id');
         $countries = Country::all();
-        $allcountries = Country::pluck('pais');
-        return view('livewire.form-users',compact('allcountries', 'countries'));
+        return view('livewire.form-users',compact('namecountries','countries'));
     }
 
-    public function updatedcount($id_country){
-      $this->coin = Country::where('id', $id_country+1)->pluck('coin_type')->first();
-    }
+    #public function updatedcount($country_origin){
+    #  $this->coin = Country::where('id', $country_origin)->pluck('coin_type')->first();
+      #$this->countries = Country::where('id', '!=',$country_origin)->get();
+  #  }
 }

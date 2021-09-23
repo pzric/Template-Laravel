@@ -5,17 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Country extends Model
+class Concept extends Model
 {
     use HasFactory;
-
     protected $fillable = [
-      'pais',
-      'coin_type',
-      'current_change',
+      'country',
+      'account',
+      'specific_concept',
+      'global_concept',
+      'TBCode',
+      'indice',
+      'area',
     ];
-
-    public function users(){
-      return $this->belongsToMany('App\Models\User');
-    }
 }

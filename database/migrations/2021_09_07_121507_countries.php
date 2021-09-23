@@ -18,7 +18,6 @@ class Countries extends Migration
         $table->string('pais');
         $table->string('coin_type');
         $table->string('current_change');
-        $table->rememberToken()->nullable();
         $table->timestamps();
       });
     }
