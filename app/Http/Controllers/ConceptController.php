@@ -35,6 +35,15 @@ class ConceptController extends Controller
      */
     public function store(Request $request)
     {
+      $request->validate([
+        'country' => 'required',
+        'account' => 'required',
+        'specific_concept' => 'required',
+        'global_concept' => 'required',
+        'TBCode' => 'required',
+        'indice' => 'required',
+        'area' => 'required',
+      ]);
       Concept::create($request->all());
       return redirect()->route('concept.index');
     }

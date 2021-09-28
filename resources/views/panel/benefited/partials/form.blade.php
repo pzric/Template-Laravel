@@ -5,7 +5,7 @@
   </div>
   <div class="md:w-1/2 px-3">
       {!! Form::label('area', 'Area', ['class' => 'block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2']) !!}
-      {!! Form::select('area', $area, null, ['class' => 'block w-full bg-grey-lighter border border-grey-lighter text-grey-darker py-3 px-4 pr-8 rounded']) !!}
+      {!! Form::select('area', $area, null, ['class' => 'block w-full text-grey-darker border-2 border-gray-400 py-3 px-4 py-3 px-4 pr-8 rounded', 'placeholder' => 'Selecciona una opcion']) !!}
   </div>
   <div class="md:w-1/2 px-3">
     {!! Form::label('country_origin', 'Pais de origen', ['class' => 'block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2']) !!}

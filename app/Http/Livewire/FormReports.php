@@ -33,6 +33,10 @@ class FormReports extends Component
   public $area_beneficted;
   public $beneficteds;
   public $concept;
+  public $list;
+  public $option;
+  public $viewform;
+  public $message;
 
     public function render()
     {
@@ -58,5 +62,12 @@ class FormReports extends Component
     }
     public function updatedarea($id_beneficted){
       $this->area_beneficted = Benefited::where('id', $id_beneficted)->pluck('area')->first();
+    }
+    public function updatedlist($calendar){
+      $this->option = $calendar;
+      $this->viewform = "display:flex";
+    }
+    public function form(){
+      $this->viewform = "display:none";
     }
   }

@@ -13,6 +13,9 @@ class ImportController extends Controller
     }
 
     public function import(Request $request){
+      $request->validate([
+        'excel' => 'required|mimes:xls,xlsx',
+      ]);
       Excel::import(new ReportsImport, request()->file('excel'));
       return redirect()->route('reports.index');
     }

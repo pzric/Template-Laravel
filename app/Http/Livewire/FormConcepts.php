@@ -17,6 +17,7 @@ class FormConcepts extends Component
     public $code;
     public $area;
     public $global_concept;
+    public $v1;
     public function render()
     {
       $concept = [
@@ -30,6 +31,7 @@ class FormConcepts extends Component
     public function updatedcount($country){
       $pais = Specific::where('Pais', $country)->get();
       $this->pais = $pais->pluck('Cuenta', 'id');
+      $this->v1 = $country;
     }
     public function updatedbody($account){
       $fills = Specific::where('id', $account)->get();

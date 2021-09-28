@@ -25,16 +25,7 @@ class BenefitedController extends Controller
      */
     public function create()
     {
-      $area = [
-        'Comercial' => 'Comercial',
-        'Finanzas' => 'Finanzas',
-        'Logistica' => 'Logistica',
-        'Capital humano' => 'Capital humano',
-        'Marketing' => 'Marketing',
-        'TI' => 'TI',
-      ];
-      $namecountries = Country::pluck('pais', 'id');
-      return view('panel.benefited.create',compact('area', 'namecountries'));
+      return view('panel.benefited.create');
     }
 
     /**

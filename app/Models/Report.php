@@ -25,5 +25,12 @@ class Report extends Model
         'project',
         'name_beneficted',
         'user_area',
+        'calendar_id',
     ];
+    public function users(){
+      return $this->belongsToMany('App\Models\User');
+    }
+    public function calendar(){
+      return $this->hasOne('App\Models\Calendar');
+    }
 }

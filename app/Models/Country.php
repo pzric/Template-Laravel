@@ -14,7 +14,7 @@ class Country extends Model
       'coin_type',
       'current_change',
     ];
-
+    //relacion usuario
     public function users(){
       return $this->belongsToMany('App\Models\User');
     }

@@ -96,7 +96,7 @@
                                 </td>
                                 <td class="border-b border-gray-200 bg-white text-sm text-center">
                                     <div class="ml-2">
-                                        <a class="text-sm bg-yellow-500 hover:bg-yellow-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline" href="{{route('reports.edit', $report)}}">
+                                        <a class="text-sm bg-yellow-500 hover:bg-yellow-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline" href="#">
                                             Modificar
                                         </a>
                                     </div>

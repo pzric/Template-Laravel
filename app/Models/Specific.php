@@ -16,6 +16,5 @@ class Specific extends Model
       'Concepto_especifico',
       'TBCode',
       'Cuenta',
-      'Naturaleza_cuenta',
     ];
 }

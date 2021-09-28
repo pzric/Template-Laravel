@@ -23,13 +23,15 @@ class Reports extends Migration
         $table->string('number2');
         $table->string('id_countryb');
         $table->string('id_concept');
+        $table->string('concep');
         $table->string('description');
         $table->string('cost');
         $table->string('calendar');
-        $table->string('cos');
         $table->string('project');
         $table->string('name_beneficted');
         $table->string('user_area');
+        $table->unsignedBigInteger('calendar_id');
+        $table->foreign('calendar_id')->references('id')->on('calendars')->onDelete('cascade');
         $table->timestamps();
       });
     }

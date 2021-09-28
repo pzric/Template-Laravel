@@ -55,13 +55,7 @@
                           </td>
                           <td class="text-center px-5 py-5 border-b border-gray-200 bg-white text-sm">
                               <p class="text-gray-900 whitespace-no-wrap">
-                                  @if (($benefited->country_origin) == 1)
-                                        Mexico
-                                  @elseif (($benefited->country_origin) == 2)
-                                        Colombia
-                                  @elseif(($benefited->country_origin)== 3)
-                                        Chile
-                                  @endif
+                                {{$benefited->country_origin}}
                               </p>
                           </td>
                           <td class="text-center px-5 py-5 border-b border-gray-200 bg-white text-sm">

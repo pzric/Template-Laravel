@@ -25,16 +25,19 @@ Route::get('/', [HomeController::class, 'home'])->name('login');
 Route::post('dashboard', [SessionController::class, 'login'])->name('home');
 Route::post('logout', [SessionController::class, 'logout'])->name('logout');
 
-Route::get('dashboard', [HomeController::class, 'panel'])->name('panel');
+Route::group(['middleware' => 'auth'], function () {
+  
+  Route::get('dashboard', [HomeController::class, 'panel'])->name('panel')->middleware();
 
-Route::post('/reports/import', [ImportController::class, 'import'])->name('/reports/import');
+  Route::post('/reports/import', [ImportController::class, 'import'])->name('/reports/import');
 
-Route::resource('/users', UserController::class)->names('users');
+  Route::resource('/users', UserController::class)->names('users');
 
-Route::resource('/benefited', BenefitedController::class)->names('benefited');
+  Route::resource('/benefited', BenefitedController::class)->names('benefited');
 
-Route::resource('/countries', CountryController::class)->names('countries');
+  Route::resource('/countries', CountryController::class)->names('countries');
 
-Route::resource('/concept', ConceptController::class)->names('concept');
+  Route::resource('/concept', ConceptController::class)->names('concept');
 
-Route::resource('/reports', ReportController::class)->names('reports');
+  Route::resource('/reports', ReportController::class)->names('reports');
+});

@@ -43,13 +43,7 @@
                       <tr>
                           <td class="text-center px-5 py-5 border-b border-gray-200 bg-white text-sm">
                               <p class="text-gray-900 whitespace-no-wrap">
-                                @if (($concept->country) == 1)
-                                      Mexico
-                                @elseif (($concept->country) == 2)
-                                      Colombia
-                                @elseif(($concept->country)== 3)
-                                      Chile
-                                @endif
+                                {{$concept->country}}
                               </p>
                           </td>
                           <td class="text-center px-5 py-5 border-b border-gray-200 bg-white text-sm">

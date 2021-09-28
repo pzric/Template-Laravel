@@ -31,4 +31,7 @@ class User extends Model implements AuthenticatableContract {
     public function countries(){
       return $this->belongsToMany('App\Models\Country');
     }
+    public function reports(){
+      return $this->belongsToMany('App\Models\Report');
+    }
 }
