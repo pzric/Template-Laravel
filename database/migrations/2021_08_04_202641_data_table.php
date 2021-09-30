@@ -22,7 +22,7 @@ class DataTable extends Migration
           $table->string('start_date');
           $table->string('end_date');
           $table->string('toggle')->nullable();
-          $table->string('country_origin');
+          $table->string('country_origin')->nullable();
           $table->string('code');
           $table->string('password');
           $table->string('cod_manager');

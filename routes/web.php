@@ -26,7 +26,7 @@ Route::post('dashboard', [SessionController::class, 'login'])->name('home');
 Route::post('logout', [SessionController::class, 'logout'])->name('logout');
 
 Route::group(['middleware' => 'auth'], function () {
-  
+
   Route::get('dashboard', [HomeController::class, 'panel'])->name('panel')->middleware();
 
   Route::post('/reports/import', [ImportController::class, 'import'])->name('/reports/import');

@@ -23,13 +23,13 @@
                   <table class="min-w-full leading-normal">
                       <thead>
                           <tr>
-                              <th wire:click="order('name')" class="text-center cursor-pointer px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                              <th wire:click="order('pais')" class="text-center cursor-pointer px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                                   Pais
                               </th>
-                              <th wire:click="order('rol')" class="text-center cursor-pointer px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                              <th wire:click="order('coin_type')" class="text-center cursor-pointer px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                                   Moneda local
                               </th>
-                              <th wire:click="order('start_date')" class="text-center cursor-pointer px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                              <th wire:click="order('current_change')" class="text-center cursor-pointer px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                                   Tipo de cambio actual
                               </th>
                               <th colspan="2" class="text-center cursor-pointer px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">

@@ -87,7 +87,7 @@
                                   </div>
                               </td>
                               <td class="border-b border-gray-200 bg-white text-sm">
-                                  <form action="{{route('users.destroy', $user)}}" method="POST">
+                                  <form action="{{route('users.destroy', $user)}}" method="POST" class="form-delet">
                                       @csrf
                                       @method('delete')
                                       <button type="submit" class="m-2 text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">

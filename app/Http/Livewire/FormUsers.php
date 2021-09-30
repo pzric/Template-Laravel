@@ -24,16 +24,15 @@ class FormUsers extends Component
     'Marketing' => 'Marketing',
     'TI' => 'TI',
   ];
-  public $count;
-  public $coin;
-    public function render(){
-        $namecountries = Country::pluck('pais', 'id');
-        $countries = Country::all();
-        return view('livewire.form-users',compact('namecountries','countries'));
+  public $count, $coin, $country_origin;
+
+    public function save(){
+
     }
 
-    #public function updatedcount($country_origin){
-    #  $this->coin = Country::where('id', $country_origin)->pluck('coin_type')->first();
-      #$this->countries = Country::where('id', '!=',$country_origin)->get();
-  #  }
+    public function render(){
+        $countries = country::all();
+        $allcountries = Country::pluck('pais', 'id');
+        return view('livewire.form-users',compact('allcountries','countries'));
+    }
 }

@@ -8,4 +8,13 @@
     <x-nav attribute="value" />
     @livewire('show-users')
 </div>
+@if (session('delet') == 'ok')
+  <script type="text/javascript">
+  Swal.fire(
+    'Deleted!',
+    'Your file has been deleted.',
+    'success'
+  )
+  </script>
+@endif
 @endsection

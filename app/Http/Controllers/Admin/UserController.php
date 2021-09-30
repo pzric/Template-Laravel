@@ -134,7 +134,7 @@ class UserController extends Controller
         $user->countries()->sync($request->countries);
       }
       else{
-        $user->countries()->detach($request->countries);  
+        $user->countries()->detach($request->countries);
       }
       return redirect()->route('users.index');
     }
@@ -148,6 +148,6 @@ class UserController extends Controller
     public function destroy(User $user)
     {
       $user->delete();
-      return redirect()->route('users.index');
+      return redirect()->route('users.index')->with('delet', 'ok');
     }
 }

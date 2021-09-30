@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Report;
 use App\Models\Calendar;
 use App\Models\Country;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Http\Controllers\Controller;
@@ -48,60 +49,7 @@ class ReportController extends Controller
 
     public function store(Request $request)
     {
-
-        $request->validate([
-          'date' => 'required',
-          'coin' => 'required',
-          'id_country' => 'required',
-          'currency' => 'required',
-          'number1' => 'required',
-          'number2' => 'required',
-          'id_countryb' => 'required',
-          'description' => 'required',
-          'calendar' => 'required|same:valtotal',
-          'cost' => 'required',
-          'project' => 'required',
-          'name_beneficted' => 'required',
-          'user_area' => 'required',
-        ]);
-        $calendar = Calendar::create([
-          'total' => $request['valtotal'],
-          'mounth1' => $request['val1'],
-          'mounth2' => $request['val2'],
-          'mounth3' => $request['val3'],
-          'mounth4' => $request['val4'],
-          'mounth5' => $request['val5'],
-          'mounth6' => $request['val6'],
-          'mounth7' => $request['val7'],
-          'mounth8' => $request['val8'],
-          'mounth9' => $request['val9'],
-          'mounth10' => $request['val10'],
-          'mounth11' => $request['val11'],
-          'mounth12' => $request['val12'],
-        ]);
-        $calendar->save();
-        $report = Report::create([
-          'date' => $request['date'],
-          'coin' => $request['coin'],
-          'id_country' => $request['id_country'],
-          'currency' => $request['currency'],
-          'number1' => $request['number1'],
-          'number2' => $request['number2'],
-          'id_countryb' => $request['id_countryb'],
-          'id_concept' => $request['id_concept'],
-          'concep' => $request['concep'],
-          'description' => $request['description'],
-          'cost' => $request['cost'],
-          'calendar' => $request['calendar'],
-          'project' => $request['project'],
-          'name_beneficted' => $request['name_beneficted'],
-          'user_area' => $request['user_area'],
-          'calendar_id' => $calendar->id,
-        ]);
-        if ($request->users) {
-          $report->users()->attach($request->users);
-        }
-        return redirect()->route('reports.index');
+      
     }
 
     /**
