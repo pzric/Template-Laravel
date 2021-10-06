@@ -15,7 +15,8 @@ class Specifics extends Migration
     {
       Schema::create('specifics',function(Blueprint $table){
         $table->id();
-        $table->string('Pais');
+        $table->unsignedBigInteger('Pais');
+        $table->foreign('Pais')->references('id')->on('countries');
         $table->string('Area');
         $table->string('Indice');
         $table->string('Concepto_global');

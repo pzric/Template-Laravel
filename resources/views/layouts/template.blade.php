@@ -15,6 +15,8 @@
     <!-- Font Awesome -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
     <style>
         @importurl('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');.font-family-karla {
@@ -37,7 +39,7 @@
             background: #4B7447;
         }
         .toggle-checkbox:checked {
-          apply: right-0 border-green-400;
+          @apply: right-0 border-green-400;
           right: 0;
           border-color: #68D391;
         }

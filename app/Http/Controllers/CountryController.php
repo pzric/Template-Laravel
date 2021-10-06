@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Country;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Http;
 
 class CountryController extends Controller
 {
@@ -25,7 +26,11 @@ class CountryController extends Controller
      */
     public function create()
     {
-        return view('panel.countries.create');
+        $countries = Http::get('http://country.io/names.json');
+        $currency = Http::get('http://country.io/currency.json');
+        $countriesArray = $countries->json();
+        $currencyArray = $currency->json();
+        return view('panel.countries.create',compact('countriesArray', 'currencyArray'));
     }
 
     /**
@@ -36,7 +41,7 @@ class CountryController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+      $request->validate([
           'pais'=> 'required',
           'coin_type'=> 'required',
           'current_change'=> 'required',

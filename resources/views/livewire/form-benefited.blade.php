@@ -10,7 +10,7 @@
     </div>
     <div class="md:w-1/2 px-3">
       {!! Form::label('country_origin', 'Pais de origen', ['class' => 'block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2']) !!}
-      {!! Form::select('country_origin', $namecountries, null, ['class' => 'w-full text-grey-darker border-2 border-gray-400 py-3 px-4 pr-8 rounded', 'placeholder' => 'Selecciona una opcion']) !!}
+      {!! Form::select('country_origin', $countries, null, ['class' => 'w-full text-grey-darker border-2 border-gray-400 py-3 px-4 pr-8 rounded', 'placeholder' => 'Selecciona una opcion']) !!}
     </div>
     <div class="md:w-1/2 px-3">
         {!! Form::label('toggle', 'Estado', ['class' => 'block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2']) !!}

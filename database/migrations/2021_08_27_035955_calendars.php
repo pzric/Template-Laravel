@@ -15,18 +15,18 @@ class Calendars extends Migration
     {
       Schema::create('calendars',function(Blueprint $table){
         $table->id();
-        $table->string('mounth1');
-        $table->string('mounth2');
-        $table->string('mounth3');
-        $table->string('mounth4');
-        $table->string('mounth5');
-        $table->string('mounth6');
-        $table->string('mounth7');
-        $table->string('mounth8');
-        $table->string('mounth9');
-        $table->string('mounth10');
-        $table->string('mounth11');
-        $table->string('mounth12');
+        $table->string('mounth1')->nullable();
+        $table->string('mounth2')->nullable();
+        $table->string('mounth3')->nullable();
+        $table->string('mounth4')->nullable();
+        $table->string('mounth5')->nullable();
+        $table->string('mounth6')->nullable();
+        $table->string('mounth7')->nullable();
+        $table->string('mounth8')->nullable();
+        $table->string('mounth9')->nullable();
+        $table->string('mounth10')->nullable();
+        $table->string('mounth11')->nullable();
+        $table->string('mounth12')->nullable();
         $table->string('total');
         $table->timestamps();
       });

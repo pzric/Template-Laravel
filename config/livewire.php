@@ -54,6 +54,7 @@ return [
     |url('/')
     */
 
+    #'asset_url' => url('/'),
     'asset_url' => url('/'),
 
     /*

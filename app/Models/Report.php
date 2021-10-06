@@ -31,6 +31,6 @@ class Report extends Model
       return $this->belongsToMany('App\Models\User');
     }
     public function calendar(){
-      return $this->hasOne('App\Models\Calendar');
+      return $this->belongsTo('App\Models\Calendar');
     }
 }

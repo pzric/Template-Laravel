@@ -81,7 +81,7 @@
                               </td>
                               <td class="text-center border-b border-gray-200 bg-white text-sm">
                                   <div class="ml-2">
-                                      <a class="text-sm bg-yellow-500 hover:bg-yellow-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline" href="{{route('users.edit', $user)}}">
+                                      <a class="text-sm bg-yellow-500 hover:bg-yellow-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline" href="#">
                                           Modificar
                                       </a>
                                   </div>

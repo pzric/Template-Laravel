@@ -15,4 +15,8 @@ class Benefited extends Model
         'country_origin',
         'toggle',
     ];
+
+    public function countries(){
+      return $this->belongsToMany('App\Models\Country');
+    }
 }

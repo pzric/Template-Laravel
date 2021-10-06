@@ -18,4 +18,7 @@ class Country extends Model
     public function users(){
       return $this->belongsToMany('App\Models\User');
     }
+    public function benefited(){
+      return $this->belongsToMany('App\Models\Benefited');
+    }
 }

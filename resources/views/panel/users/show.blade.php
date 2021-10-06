@@ -11,8 +11,8 @@
 @if (session('delet') == 'ok')
   <script type="text/javascript">
   Swal.fire(
-    'Deleted!',
-    'Your file has been deleted.',
+    'Borrado!',
+    'El usuario a sido borrado.',
     'success'
   )
   </script>

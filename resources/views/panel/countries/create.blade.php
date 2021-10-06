@@ -16,4 +16,9 @@
         </div>
     </div>
 </div>
+<script type="text/javascript">
+$(document).ready(function() {
+    $('.js-api-select').select2();
+});
+</script>
 @endsection

@@ -17,7 +17,8 @@ class Benefiteds extends Migration
           $table->id();
           $table->string('name');
           $table->string('area');
-          $table->string('country_origin');
+          $table->unsignedBigInteger('country_origin');
+          $table->foreign('country_origin')->references('id')->on('countries');
           $table->string('toggle')->nullable();
           $table->timestamps();
         });

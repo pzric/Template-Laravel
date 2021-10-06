@@ -22,18 +22,18 @@ class UserFactory extends Factory
     public function definition()
     {
       return [
+          'code' => '1234',
           'name' => 'Admin',
+          'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
           'email' => 'admin@admin.com',
-          'rol' => 'Super ususario',
+          'country_origin' => '1',
+          'rol' => 'Super usuario',
           'area' => 'TI',
           'start_date' => '2021-09-21',
-          'end_date' => '2021-10-09',
-          'toggle' => 'on',
-          'country_origin' =>null,
-          'code' => '1234',
-          'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
-          'cod_manager' => '90123',
-          'email_manager' => 'jefe@jefe.com',
+          'end_date' => null,
+          'state' => 'on',
+          'cod_manager' => '123',
+          'email_manager' => 'admin@admin.com',
       ];
     }
 }
