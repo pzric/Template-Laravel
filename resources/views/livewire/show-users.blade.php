@@ -1,11 +1,5 @@
   <div class="w-full overflow-x-hidden border-t flex flex-col">
       <div class="container mx-auto px-4 sm:px-8">
-          <div class="text-right my-8">
-              <a href="{{route('users.create')}}" class="text-sm bg-green-500 hover:bg-green-700 text-white py-3 px-8 rounded focus:outline-none focus:shadow-outline">
-                  <i class="fas fa-user-plus mr-3"></i>
-                  Agregar usuario
-              </a>
-          </div>
           <div class="content-end flex sm:flex-row flex-col">
               <div class="block relative">
                   <span class="h-full absolute inset-y-0 left-0 flex items-center pl-2">
@@ -16,6 +10,12 @@
                   </span>
                   <input type="text" wire:model="search" id="search"
                     class="appearance-none rounded-r rounded-l sm:rounded-l-none border border-gray-400 border-b block pl-8 pr-6 py-2 w-full bg-white text-sm placeholder-gray-400 text-gray-700 focus:bg-white focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none" />
+              </div>
+              <div class="-right">
+                <a href="{{route('users.create')}}" class="text-sm bg-green-500 hover:bg-green-700 text-white py-3 px-8 rounded focus:outline-none focus:shadow-outline">
+                    <i class="fas fa-user-plus mr-3"></i>
+                    Agregar usuario
+                </a>
               </div>
           </div>
           <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
@@ -32,7 +32,7 @@
                               <th wire:click="order('start_date')" class="text-center cursor-pointer px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                                   Creado en
                               </th>
-                              <th wire:click="order('toggle')" class="text-center cursor-pointer px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                              <th wire:click="order('state')" class="text-center cursor-pointer px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                                   Status
                               </th>
                               <th colspan="2" class="text-center cursor-pointer px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
@@ -81,7 +81,7 @@
                               </td>
                               <td class="text-center border-b border-gray-200 bg-white text-sm">
                                   <div class="ml-2">
-                                      <a class="text-sm bg-yellow-500 hover:bg-yellow-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline" href="#">
+                                      <a wire:click="edit({{$user->id}})" class="text-sm bg-yellow-500 hover:bg-yellow-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">
                                           Modificar
                                       </a>
                                   </div>

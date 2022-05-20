@@ -6,6 +6,7 @@
 </div>
 <div class="w-full flex flex-col h-screen overflow-y-hidden">
     <x-nav attribute="value" />
+    <h1 class="m-3 text-3xl">Users</h1>
     @livewire('show-users')
 </div>
 @if (session('delet') == 'ok')

@@ -7,7 +7,7 @@ use Livewire\Component;
 
 class ShowUsers extends Component
 {
-    public $search;
+    public $search, $user;
     public $sort = 'id';
     public $direction = "asc";
 
@@ -21,5 +21,11 @@ class ShowUsers extends Component
 
     public function order($sort){
       $this->sort = $sort;
+    }
+
+    public function edit($id){
+      $user = User::find($id);
+      $this->user = $user;
+      $this->emit('editUser', $user->id);
     }
 }

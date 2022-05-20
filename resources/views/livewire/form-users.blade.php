@@ -2,7 +2,7 @@
     <div class="-mx-3 md:flex mb-6">
         <div class="md:w-1/2 px-3">
             {!! Form::label('user_code', 'Codigo de usuario', ['class' => 'block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2']) !!}
-            {!! Form::number('user_code', null, ['wire:model.defer' => 'user_code', 'class' => 'w-full rounded-md text-grey-darker border border-gray-400 py-2 px-2']) !!}
+            {!! Form::number('user_code', null, ['wire:model.defer' => 'user_code', 'min' => '0', 'class' => 'w-full rounded-md text-grey-darker border border-gray-400 py-2 px-2']) !!}
             @error ('user_code')<small class="text-red-700">{{$message}}</small>
             @enderror
         </div>
@@ -91,7 +91,7 @@
               <div class="-mx-3 md:flex mb-6">
                   <div class="md:w-1/2 px-3">
                       {!! Form::checkbox('selctcountries[]', $country->id, false, ['wire:model.defer' => 'selctcountries', 'class' => 'mr-3']) !!}
-                      {!! Form::label('countries', $country->pais , ['class' => 'uppercase tracking-wide text-grey-darker text-xs font-bold mb-2']) !!}
+                      {!! Form::label('countries', $country->country , ['class' => 'uppercase tracking-wide text-grey-darker text-xs font-bold mb-2']) !!}
                   </div>
               </div>
               @endforeach
@@ -102,12 +102,5 @@
       <div class="md:w-1/2 px-3">
           {!! Form::button('<i class="fas fa-save mr-3"></i>Guardar usuario', ['wire:click' => 'save()' ,'class' => 'bg-green-600 text-white px-6 py-2 rounded font-medium mx-3 hover:bg-green-500 transition duration-200 each-in-out']) !!}
       </div>
-    </div>
-    <div class="text-red-700">
-        <ul>
-            @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
-            @endforeach
-        </ul>
     </div>
 </div>

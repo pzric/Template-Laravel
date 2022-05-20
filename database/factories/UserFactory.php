@@ -32,7 +32,7 @@ class UserFactory extends Factory
           'start_date' => '2021-09-21',
           'end_date' => null,
           'state' => 'on',
-          'cod_manager' => '123',
+          'cod_manager' => '1234',
           'email_manager' => 'admin@admin.com',
       ];
     }

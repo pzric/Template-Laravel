@@ -30,4 +30,7 @@
             Cancelar
         </button>
     </footer>
+    @foreach ($errors->all() as $error)
+    <li>{{ $error }}</li>
+    @endforeach
 </form>

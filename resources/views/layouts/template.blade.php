@@ -13,10 +13,9 @@
     <!-- AlpineJS -->
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <!-- Font Awesome -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/a502e2142c.js" crossorigin="anonymous"></script>
+    <!-- Jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
     <style>
         @importurl('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');.font-family-karla {
@@ -57,5 +56,15 @@
     @yield('content')
 
     <livewire:scripts />
+    @stack('js')
+    <script type="text/javascript">
+      Livewire.on('alert', function(message1,message2){
+        Swal.fire(
+          message1,
+          message2,
+          'success'
+        )
+      })
+    </script>
 </body>
 </html>

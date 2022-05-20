@@ -31,7 +31,7 @@ class FormUsers extends Component
   ];
 
   protected $rules = [
-    'user_code' => 'required|numeric|unique:App\Models\User,code',
+    'user_code' => 'required|min:0||integer|numeric|unique:App\Models\User,code',
     'user_name' => 'required|string|regex:/^[a-zA-Z ]+$/',
     'user_password' => [
             'required',
@@ -50,6 +50,15 @@ class FormUsers extends Component
     'cod_manager' => 'required|numeric|exists:App\Models\User,code',
     'email_manager' => 'required|email',
   ];
+
+  public function messages()
+  {
+      return [
+          'user_password.required' => 'El campo password es requerido.',
+          'user_password.min' => 'El campo password debe contener almenos 6 caracteres',
+          'user_password.regex' => 'El campo password debe contener letras minusculas, mayusculas y numeros',
+      ];
+  }
 
   public function save(){
     $this->validate();
@@ -79,7 +88,7 @@ class FormUsers extends Component
   }
 
   public function render(){
-      $allcountries = Country::pluck('pais', 'id');
+      $allcountries = Country::pluck('country', 'id');
       return view('livewire.form-users',compact('allcountries'));
   }
 }
