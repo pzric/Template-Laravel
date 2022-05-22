@@ -13,27 +13,11 @@ class User extends Model implements AuthenticatableContract {
     use HasFactory;
     protected $fillable = [
       'name',
+      'username',
+      'password',
       'email',
       'rol',
-      'area',
-      'start_date',
-      'end_date',
-      'toggle',
-      'country_origin',
-      'code',
-      'password',
-      'cod_manager',
-      'email_manager',
-      'money',
-      'countries',
+      'state',
+      'rememberToken',
     ];
-    //Relacion tabla paises
-    public function countries(){
-      return $this->belongsToMany('App\Models\Country');
-    }
-
-    //relacion uno a muchos
-    public function reports(){
-      return $this->hasMany('App\Models\Report');
-    }
 }

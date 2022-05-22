@@ -3,8 +3,6 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\User;
-use App\Models\Country;
 
 class DatabaseSeeder extends Seeder
 {
@@ -15,7 +13,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        Country::factory(1)->create();
-        User::factory(1)->create();
+      $this->call(UserSeeder::class);
     }
 }

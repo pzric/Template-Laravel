@@ -14,7 +14,8 @@
         "laravelcollective/html": "^6.2",
         "livewire/livewire": "^2.5",
         "maatwebsite/excel": "^3.1",
-        "silber/bouncer": "v1.0.0-rc.10"
+        "silber/bouncer": "v1.0.0-rc.10",
+        "spatie/laravel-permission": "^5.5"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

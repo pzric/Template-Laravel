@@ -10,7 +10,7 @@
                 @csrf
                 <div class="flex flex-col pt-4">
                     <label for="code" class="text-lg">Nombre de usuario</label>
-                    <input type="text" required autofocus name="code" value="{{ old('code') }}" placeholder="Codigo usuario " class="appearance-none shadow border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline">
+                    <input type="text" required autofocus name="code" value="{{ old('code') }}" placeholder="Nombre de usuario " class="appearance-none shadow border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline">
                     @error ('code') {{$message}}@enderror
                 </div>
                 <div class="flex flex-col pt-4">
