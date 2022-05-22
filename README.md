@@ -1,7 +1,6 @@
 # Template-Laravel
 Simple template for laravel
 
-![Login](https://github.com/pzric/Template-Laravel/blob/main/img/login.jpg)
 
 Components: 
 
@@ -12,7 +11,6 @@ Components:
 - Dashboard.
 - CRUD Users.
 
-![Login](https://github.com/pzric/Template-Laravel/blob/main/img/dashboard.jpg)
 
 Resources: 
 
