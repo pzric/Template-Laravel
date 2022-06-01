@@ -23,28 +23,15 @@
         }
 
         .bg-sidebar {
-            background: #252525;
+            background: #2E2E2E;
         }
 
         .active-nav-link {
-            background: #4B7447;
+            background: #00B6E7;
         }
 
         .nav-item:hover {
-            background: #4B7447;
-        }
-
-        .account-link:hover {
-            background: #4B7447;
-        }
-        .toggle-checkbox:checked {
-          @apply: right-0 border-green-400;
-          right: 0;
-          border-color: #68D391;
-        }
-        .toggle-checkbox:checked + .toggle-label {
-          apply: bg-green-400;
-          background-color: #68D391;
+            background: #414141;
         }
 
         [x-cloak] { display: none }

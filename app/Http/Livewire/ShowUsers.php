@@ -4,26 +4,21 @@ namespace App\Http\Livewire;
 
 use App\Models\User;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class ShowUsers extends Component
 {
-    public $search, $user;
-    public $sort = 'id';
-    public $direction = "asc";
+    use WithPagination;
 
-    public function order($sort){
-        $this->sort = $sort;
-    }
+    public $search;
 
-    public function edit($id){
-        $user = User::find($id);
-        $this->user = $user;
-        $this->emit('editUser', $user->id);
+    public function updatingSearch(){
+      $this->resetPage();
     }
 
     public function render()
     {
-        $users = User::where('user', 'like', '%' . $this->search . '%')->get();
+        $users = User::where('user', 'like', '%' . $this->search . '%')->paginate(10);
         return view('livewire.show-users', compact('users'));
     }
 }

@@ -16,7 +16,7 @@ class UserSeeder extends Seeder
     public function run()
     {
       $admin = User::create([
-        'user' => 'Ricardo',
+        'user' => 'admin',
         'username' => 'Admin',
         'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', //password
         'email' => 'admin@admin.com',
@@ -24,13 +24,9 @@ class UserSeeder extends Seeder
       ]);
       $admin->assignRole('Admin');
 
-      $User = User::create([
-        'user' => 'Paco',
-        'username' => 'User',
-        'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', //password
-        'email' => 'user@user.com',
-        'state' => '0',
-      ]);
-      $User->assignRole('User');
+
+      User::factory(10)->create()->each(function ($user) {
+        $user->assignRole('User'); // assuming 'supscription' was a typo
+});
     }
 }
