@@ -1,7 +1,7 @@
 <!-- Desktop Header -->
 <header class="w-full items-center bg-white py-2 px-6 hidden sm:flex">
     <div class="w-1/2"></div>
-    <div x-data="{ isOpen: false }" class="relative w-1/2 flex justify-end">
+    <div x-cloak x-data="{ isOpen: false }" class="relative w-1/2 flex justify-end">
         <button @click="isOpen = !isOpen" class="realtive z-10 w-12 h-12 rounded-full overflow-hidden border-4 border-gray-400 hover:border-gray-300 focus:border-gray-300 focus:outline-none">
             <img src="https://source.unsplash.com/uJ8LNVCBjFQ/400x400">
         </button>
@@ -33,18 +33,6 @@
         <a href="blank.html" class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
             <i class="fas fa-sticky-note mr-3"></i>
             Gestion
-        </a>
-        <a href="tables.html" class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
-            <i class="fas fa-table mr-3"></i>
-            Registro
-        </a>
-        <a href="forms.html" class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
-            <i class="fas fa-align-left mr-3"></i>
-            Reportes
-        </a>
-        <a href="tabs.html" class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
-            <i class="fas fa-tablet-alt mr-3"></i>
-            Modificaciones
         </a>
         <a href="#" class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
             <i class="fas fa-user mr-3"></i>

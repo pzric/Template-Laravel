@@ -1,125 +1,95 @@
-  <div class="w-full overflow-x-hidden border-t flex flex-col">
-      <div class="container mx-auto px-4 sm:px-8">
-          <div class="content-end flex sm:flex-row flex-col">
-              <div class="block relative">
-                  <span class="h-full absolute inset-y-0 left-0 flex items-center pl-2">
-                      <svg viewBox="0 0 24 24" class="h-4 w-4 fill-current text-gray-500">
-                          <path d="M10 4a6 6 0 100 12 6 6 0 000-12zm-8 6a8 8 0 1114.32 4.906l5.387 5.387a1 1 0 01-1.414 1.414l-5.387-5.387A8 8 0 012 10z">
-                          </path>
-                      </svg>
-                  </span>
-                  <input type="text" wire:model="search" id="search"
-                    class="appearance-none rounded-r rounded-l sm:rounded-l-none border border-gray-400 border-b block pl-8 pr-6 py-2 w-full bg-white text-sm placeholder-gray-400 text-gray-700 focus:bg-white focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none" />
+  <div class="w-full flex flex-col h-screen overflow-y-hidden">
+      <x-nav attribute="value" />
+      <div class="container mx-auto px-4">
+          <h1 class="text-4xl py-6">Users</h1>
+          <!-- Options -->
+          <div class="mb-4 flex justify-between items-center">
+              <!-- Search -->
+              <div class="flex-1 pr-4">
+                  <div class="relative md:w-1/3">
+                      <input type="search" class="w-full pl-10 pr-4 py-2 rounded-lg shadow focus:outline-none focus:shadow-outline text-gray-600 font-medium" placeholder="Search...">
+                      <div class="absolute top-0 left-0 inline-flex items-center p-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-400" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                              <rect x="0" y="0" width="24" height="24" stroke="none"></rect>
+                              <circle cx="10" cy="10" r="7" />
+                              <line x1="21" y1="21" x2="15" y2="15" />
+                          </svg>
+                      </div>
+                  </div>
               </div>
-              <div class="-right">
-                <a href="{{route('users.create')}}" class="text-sm bg-green-500 hover:bg-green-700 text-white py-3 px-8 rounded focus:outline-none focus:shadow-outline">
-                    <i class="fas fa-user-plus mr-3"></i>
-                    Agregar usuario
-                </a>
-              </div>
-          </div>
-          <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
-              <div class="inline-block min-w-full shadow rounded-lg overflow-hidden">
-                  <table class="min-w-full leading-normal">
-                      <thead>
-                          <tr>
-                              <th wire:click="order('name')" class="text-center cursor-pointer px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                                  Usuario
-                              </th>
-                              <th wire:click="order('rol')" class="text-center cursor-pointer px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                                  Rol
-                              </th>
-                              <th wire:click="order('start_date')" class="text-center cursor-pointer px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                                  Creado en
-                              </th>
-                              <th wire:click="order('state')" class="text-center cursor-pointer px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                                  Status
-                              </th>
-                              <th colspan="2" class="text-center cursor-pointer px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                                  Acciones
-                              </th>
-                          </tr>
-                      </thead>
-                      <tbody>
-                          @if ($users->count())
-                          @foreach ($users as $user)
-                          <tr>
-                              <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                  <div class="flex items-center">
-                                      <div class="flex-shrink-0 w-10 h-10">
-                                          <img class="w-full h-full rounded-full" src="https://source.unsplash.com/uJ8LNVCBjFQ/400x400" />
-                                      </div>
-                                      <div class="ml-3">
-                                          <p class="text-gray-900 whitespace-no-wrap">
-                                              {{$user->name}}
-                                          </p>
-                                      </div>
-                                  </div>
-                              </td>
-                              <td class="text-center px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                  <p class="text-gray-900 whitespace-no-wrap">
-                                    {{$user->rol}}
-                                  </p>
-                              </td>
-                              <td class="text-center px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                  <p class="text-gray-900 whitespace-no-wrap">
-                                      {{$user->start_date}}
-                                  </p>
-                              </td>
-                              <td class="text-center px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                  @if ($user->toggle === 'on')
-                                  <span class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
-                                      <span aria-hidden class="absolute inset-0 bg-green-200 opacity-50 rounded-full"></span>
-                                      <span class="relative">Activo</span>
-                                  </span>
-                                  @else
-                                  <span class="relative inline-block px-3 py-1 font-semibold text-red-900 leading-tight">
-                                      <span aria-hidden class="absolute inset-0 bg-red-200 opacity-50 rounded-full"></span>
-                                      <span class="relative">Inactivo</span>
-                                  </span>
-                                  @endif
-                              </td>
-                              <td class="text-center border-b border-gray-200 bg-white text-sm">
-                                  <div class="ml-2">
-                                      <a wire:click="edit({{$user->id}})" class="text-sm bg-yellow-500 hover:bg-yellow-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">
-                                          Modificar
-                                      </a>
-                                  </div>
-                              </td>
-                              <td class="border-b border-gray-200 bg-white text-sm">
-                                  <form action="{{route('users.destroy', $user)}}" method="POST" class="form-delet">
-                                      @csrf
-                                      @method('delete')
-                                      <button type="submit" class="m-2 text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">
-                                          Eliminar
-                                      </button>
-                                  </form>
-                              </td>
-                          </tr>
-                          @endforeach
-                          @else
-                          <tr>
-                              <td colspan="5" class="text-center px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                  <span>Sin registros</span>
-                              </td>
-                          </tr>
-                          @endif
-                      </tbody>
-                  </table>
-                  <div class="px-5 py-5 bg-white border-t flex flex-col xs:flex-row items-center xs:justify-between">
-                      <span class="text-xs xs:text-sm text-gray-900">
-                          Showing 1 to 4 of 50 Entries
-                      </span>
-                      <div class="inline-flex mt-2 xs:mt-0">
-                          <button class="text-sm bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4 rounded-l">
-                              Prev
-                          </button>
-                          <button class="text-sm bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4 rounded-r">
-                              Next
+              <!-- Button -->
+              <div>
+                  <div class="shadow rounded-lg flex">
+                      <div class="flex">
+                          <button class="rounded-lg inline-flex items-center bg-green-600 hover:text-white hover:bg-green-400 focus:outline-none focus:shadow-outline text-white py-2 px-2 md:px-4">
+                              <i class="fa-solid fa-user-plus w-6 h-6 mr-2 py-1"></i>
+                              <span class="hidden md:block">New user</span>
                           </button>
                       </div>
                   </div>
               </div>
+          </div>
+
+          <div class="overflow-x-auto bg-white rounded-lg shadow overflow-y-auto relative">
+              <table class="border-collapse table-auto w-full whitespace-no-wrap bg-white table-striped relative">
+                  <thead>
+                      <tr class="text-left">
+                          <th class="bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs">
+                              USER
+                          </th>
+                          <th class="bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs">
+                              ROL
+                          </th>
+                          <th class="bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs">
+                              EMAIL
+                          </th>
+                          <th class="bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs">
+                              CREATED AT
+                          </th>
+                          <th class="bg-gray-100 sticky top-0 border-b border-gray-200 px-2 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs">
+                              STATUS
+                          </th>
+                          <th class="bg-gray-100 sticky top-0 border-b border-gray-200 px-3 text-gray-600 font-bold tracking-wider uppercase text-xs">
+                            ACTION
+                          </th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                    @if ($users->count())
+                      @foreach ($users as $user)
+                        <tr>
+                            <td class="border-dashed border-t border-gray-200">
+                                <span class="text-gray-700 px-6 py-3 flex items-center">{{$user->user}}</span>
+                            </td>
+                            <td class="border-dashed border-t border-gray-200">
+                                <span class="text-gray-700 px-6 py-3 flex items-center">{{$user->roles->pluck('name')->first()}}</span>
+                            </td>
+                            <td class="border-dashed border-t border-gray-200">
+                                <span class="text-gray-700 px-6 py-3 flex items-center">{{$user->email}}</span>
+                            </td>
+                            <td class="border-dashed border-t border-gray-200">
+                                <span class="text-gray-700 px-6 py-3 flex items-center">{{$user->created_at}}</span>
+                            </td>
+                            <td class="border-dashed border-t border-gray-200">
+                              @if ($user->state === '1')
+                                <span class="text-green-900 bg-green-100 rounded-full px-3 py-1">Active</span>
+                              @else
+                                <span class="text-red-900 bg-red-200 rounded-full px-3 py-1">Inactive</span>
+                              @endif
+                            </td>
+                            <td class="border-dashed border-t border-gray-200">
+                                <a href="#" class="mx-2">
+                                  <i class="fa-solid fa-pen-to-square"></i>
+                                </a>
+                                <a href="#" class="mx-2">
+                                  <i class="fa-solid fa-trash"></i>
+                                </a>
+                            </td>
+                        </tr>
+                      @endforeach
+                    @endif
+                  </tbody>
+              </table>
           </div>
       </div>
   </div>

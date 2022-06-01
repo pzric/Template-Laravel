@@ -11,21 +11,19 @@ class ShowUsers extends Component
     public $sort = 'id';
     public $direction = "asc";
 
-    public function render()
-    {
-        $users = User::where([['name', 'like', '%' . $this->search . '%'],['id', '<>', auth()->user()->id]])
-        ->orderby($this->sort, $this->direction)
-        ->get();
-        return view('livewire.show-users',compact('users'));
-    }
-
     public function order($sort){
-      $this->sort = $sort;
+        $this->sort = $sort;
     }
 
     public function edit($id){
-      $user = User::find($id);
-      $this->user = $user;
-      $this->emit('editUser', $user->id);
+        $user = User::find($id);
+        $this->user = $user;
+        $this->emit('editUser', $user->id);
+    }
+
+    public function render()
+    {
+        $users = User::where('user', 'like', '%' . $this->search . '%')->get();
+        return view('livewire.show-users', compact('users'));
     }
 }

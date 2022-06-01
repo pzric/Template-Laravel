@@ -13,7 +13,7 @@ class SessionController extends Controller
   public function login(Request $request){
     $remember = $request->filled('remember');
     /** login */
-    if (Auth::attempt($request->only('code', 'password'), $remember)){
+    if (Auth::attempt($request->only('username', 'password'), $remember)){
       $request->session();
       return redirect()->route('panel');
     }

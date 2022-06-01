@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
+    <!-- Sweetalert2 -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- AlpineJS -->
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
@@ -46,6 +46,8 @@
           apply: bg-green-400;
           background-color: #68D391;
         }
+
+        [x-cloak] { display: none }
     </style>
 
     <livewire:styles />

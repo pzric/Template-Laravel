@@ -15,11 +15,10 @@ class DataTable extends Migration
     {
         Schema::create('users', function(Blueprint $table){
           $table->id();
-          $table->text('name');
+          $table->text('user');
+          $table->string('email');
           $table->string('username');
           $table->string('password');
-          $table->string('email');
-          $table->string('rol');
           $table->string('state');
           $table->rememberToken()->nullable();
           $table->timestamps();

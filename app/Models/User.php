@@ -4,19 +4,19 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
-use Illuminate\Auth\Authenticatable;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Spatie\Permission\Traits\HasRoles;
 
-class User extends Model implements AuthenticatableContract {
+class User extends Authenticatable {
 
-    use Authenticatable;
     use HasFactory;
+    use HasRoles;
+
     protected $fillable = [
       'name',
       'username',
       'password',
       'email',
-      'rol',
       'state',
       'rememberToken',
     ];
