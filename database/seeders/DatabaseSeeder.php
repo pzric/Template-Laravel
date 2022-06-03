@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Factory;
-use App\Models\User;
 
 class DatabaseSeeder extends Seeder
 {
@@ -17,6 +16,5 @@ class DatabaseSeeder extends Seeder
     {
       $this->call(RolSeeder::class);
       $this->call(UserSeeder::class);
-      User::factory(30)->create();
     }
 }

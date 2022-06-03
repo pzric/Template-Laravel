@@ -11,15 +11,16 @@
                 <div class="flex flex-col pt-4">
                     <label for="code" class="text-lg">Nombre de usuario</label>
                     <input type="text" required autofocus name="username" value="{{ old('username') }}" placeholder="Nombre de usuario " class="appearance-none shadow border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline">
-                    @error ('code') {{$message}}@enderror
+                    @error ('username')<small class="text-red-700">{{$message}}</small>@enderror
                 </div>
                 <div class="flex flex-col pt-4">
                     <label for="password" class="text-lg">Contraseña</label>
                     <input type="password" required name="password" placeholder="Contraseña" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline">
-                    @error ('password') {{$message}}@enderror
+                    @error ('password')<small class="text-red-700">{{$message}}</small>@enderror
                 </div>
+                @error ('credentials')<small class="text-red-700">{{$message}}</small>@enderror
                 <div class="pt-4">
-                    <input class="form-check-input" type="checkbox">
+                    <input class="form-check-input" name="remember" value="1" type="checkbox">
                     <label class="form-check-label">Recordar contraseña</label>
                 </div>
                 <input type="submit" value="Iniciar seccion" class="bg-black text-white font-bold text-lg hover:bg-gray-700 p-2 mt-8">

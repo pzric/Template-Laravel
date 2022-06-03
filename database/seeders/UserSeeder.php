@@ -25,8 +25,8 @@ class UserSeeder extends Seeder
       $admin->assignRole('Admin');
 
 
-      User::factory(10)->create()->each(function ($user) {
-        $user->assignRole('User'); // assuming 'supscription' was a typo
+      User::factory(20)->create()->each(function ($user) {
+        $user->assignRole('User');
 });
     }
 }

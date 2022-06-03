@@ -13,11 +13,17 @@ class SessionController extends Controller
   public function login(Request $request){
     $remember = $request->filled('remember');
     /** login */
-    if (Auth::attempt($request->only('username', 'password'), $remember)){
-      $request->session();
-      return redirect()->route('panel');
+    $credentials = $request->validate([
+      'username' => ['required'],
+      'password' => ['required'],
+    ]);
+    if (Auth::attempt($credentials, $remember)){
+      $request->session()->regenerate();
+      return redirect()->intended('dashboard');
     }
-    return view('login');
+    return back()->withErrors([
+      'credentials' => 'Las credenciales proporcionadas no coinciden con nuestros registros.',
+    ]);
   }
   public function logout(Request $request, Redirector $redirect){
     Auth::logout();
