@@ -54,8 +54,7 @@ return [
     |url('/')
     */
 
-    #'asset_url' => url('/'),
-    'asset_url' => 'http://127.0.0.1/Gestion-Presupuestal-Nikken/public',
+    'asset_url' => 'http://127.0.0.1/Template-Laravel/public',
 
     /*
     |--------------------------------------------------------------------------

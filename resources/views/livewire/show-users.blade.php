@@ -76,7 +76,7 @@
                                 <a href="#" class="mx-2">
                                   <i class="fa-solid fa-pen-to-square"></i>
                                 </a>
-                                <a href="#" class="mx-2">
+                                <a  wire:click="$emit('deleteUser', {{$user->id}})" class="mx-2 cursor-pointer">
                                   <i class="fa-solid fa-trash"></i>
                                 </a>
                             </td>
@@ -96,4 +96,23 @@
               </div>
           </div>
       </div>
+      @push('js')
+       <script type="text/javascript">
+       Livewire.on('deleteUser', user_id => {
+         Swal.fire({
+             title: 'Are you sure?',
+             text: "You won't be able to reverse this!",
+             icon: 'warning',
+             showCancelButton: true,
+             confirmButtonColor: '#3085d6',
+             cancelButtonColor: '#d33',
+             confirmButtonText: 'Yes, delete it!',
+           }).then((result) => {
+             if (result.isConfirmed) {
+               Livewire.emitTo('show-users', 'delete', user_id);
+             }
+           })
+       })
+       </script>
+     @endpush
   </div>

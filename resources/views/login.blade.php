@@ -19,9 +19,9 @@
                     @error ('password')<small class="text-red-700">{{$message}}</small>@enderror
                 </div>
                 @error ('credentials')<small class="text-red-700">{{$message}}</small>@enderror
-                <div class="pt-4">
+                <div class="pt-4 text-center">
                     <input class="form-check-input" name="remember" value="1" type="checkbox">
-                    <label class="form-check-label">Recordar contraseña</label>
+                    <label class="form-check-label">Mantener la sesión iniciada</label>
                 </div>
                 <input type="submit" value="Iniciar seccion" class="bg-black text-white font-bold text-lg hover:bg-gray-700 p-2 mt-8">
             </form>

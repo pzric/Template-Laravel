@@ -13,11 +13,11 @@ class SessionController extends Controller
   public function login(Request $request){
     $remember = $request->filled('remember');
     /** login */
-    $credentials = $request->validate([
+    $request->validate([
       'username' => ['required'],
       'password' => ['required'],
     ]);
-    if (Auth::attempt($credentials, $remember)){
+    if (Auth::attempt(['username' => $request->username, 'password' => $request->password, 'state' => 1], $remember)){
       $request->session()->regenerate();
       return redirect()->intended('dashboard');
     }

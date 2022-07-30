@@ -7,6 +7,9 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <!-- favicon-->
+    <link rel="icon" href="{{ asset('favicon.ico') }}" />
+
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <!-- Sweetalert2 -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -45,13 +48,14 @@
     @yield('content')
 
     <livewire:scripts />
+
     @stack('js')
     <script type="text/javascript">
-      Livewire.on('alert', function(message1,message2){
+      Livewire.on('alert', function(message1,message2, type){
         Swal.fire(
           message1,
           message2,
-          'success'
+          type
         )
       })
     </script>
